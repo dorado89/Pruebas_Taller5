@@ -15,9 +15,14 @@ Scenario Outline: Login failed with wrong inputs
       |                  |          | Ingresa una contraseña   |
       | miso@gmail.com   |    1234  | Upss! El correo y        |
 
-Scenario: Login failed
+Scenario: Login pass
     Given I go to losestudiantes home screen
     When I open the login screen
     And I fill the form
     And I try to register
-    Then I expect to verify exitoso
+    And I ok exitoso screen
+    And I try to click cuenta and salir
+    And I open the login screen
+    And I fill a right email and password
+    And I try to login
+    Then I expect to verify login
